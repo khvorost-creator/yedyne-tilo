@@ -17,15 +17,24 @@ Four models (Claude, GPT, Gemini, Grok) produce identical verdicts on identical 
 
 ---
 
-## What This Is
+## Files
 
-A protocol for multi-model truth-seeking that:
+| File | Description |
+|------|-------------|
+| `claims.json` | 6 claims with full model responses (Cycle 11 data) |
+| `metrics.py` | A1 / A2 / A3 / n_eff_evidence / aggregate() |
+| `prompts.py` | 5-frame prompt generator + response parser |
+| `runner.py` | Full aggregation pipeline, CLI |
+| `єдинетіло_app.jsx` | React aggregator UI |
+| `единетіло_central_result.md` | Core findings, Cycles 1–11 |
+| `yedyne_tilo_preprint.docx` | Full paper |
 
-1. Issues identical structured prompts to 4 LLMs in parallel
-2. Collects `verdict + confidence + evidence_atoms + counter_atoms` from each
-3. Computes consensus verdict via weighted majority
-4. Builds **S₃** — a deduplicated union of evidence from consensus-supporting models
-5. Measures real independence via Jaccard similarity → `n_eff_evidence`
+**Quick start:**
+```bash
+git clone https://github.com/khvorost-creator/yedyne-tilo
+cd yedyne-tilo
+python runner.py --offline
+```
 
 ---
 
@@ -93,8 +102,6 @@ n_eff_evidence
 
 ## Five Frames
 
-Each claim is evaluated under five prompt frames:
-
 | Frame | Description |
 |-------|-------------|
 | `neutral` | No framing pressure |
@@ -102,8 +109,6 @@ Each claim is evaluated under five prompt frames:
 | `user_negative` | User asserts claim is false |
 | `maximal_abstract` | Maximal scope, abstract language |
 | `minimal_concrete` | Minimal scope, concrete language |
-
-A1 measures flip between user_positive and user_negative. A2 measures flip between maximal and minimal.
 
 ---
 
@@ -154,26 +159,6 @@ Star topology. Models do not communicate. S₁ carries the protocol and assemble
 | Scope inflation | B03, S09 |
 | Condition injection | B10 |
 | Asymmetric pull | S02 (undecidable→true under maximal) |
-
----
-
-## Repository Structure
-
-```
-/
-├── README.md                          ← this file
-├── preprint/
-│   └── yedyne_tilo_preprint.docx     ← full paper
-├── protocol/
-│   └── единетіло_central_result.md   ← core findings
-├── code/
-│   ├── claims.json                    ← 6 claims with full data
-│   ├── prompts.py                     ← frame generation
-│   ├── metrics.py                     ← A1/A2/A3/n_eff
-│   └── runner.py                      ← aggregation pipeline
-└── app/
-    └── єдинетіло_app.jsx              ← React aggregator UI
-```
 
 ---
 
