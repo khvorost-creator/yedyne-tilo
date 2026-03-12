@@ -1,0 +1,315 @@
+{
+  "protocol_version": "1.1",
+  "date": "2026-03-12",
+  "models": ["Claude", "GPT", "Gemini", "Grok"],
+  "model_weights": { "Claude": 1.0, "GPT": 1.0, "Gemini": 1.0, "Grok": 1.2 },
+  "frames": ["neutral", "user_positive", "user_negative", "maximal_abstract", "minimal_concrete"],
+  "claims": [
+    {
+      "id": "F01",
+      "class": "fact_stable",
+      "text": "Water boils at 100°C at standard atmospheric pressure (1 atm).",
+      "neutral_verdicts": {
+        "Claude": { "verdict": "true", "confidence": 0.99,
+          "evidence": [
+            "pure water boils 100°C 1atm empirical thermodynamic fact",
+            "physical chemistry standard IUPAC definition boiling point",
+            "historical Celsius scale defined by water phase transitions"
+          ],
+          "counter": [
+            "IUPAC 1982 standard 100kPa not 101.325kPa gives 99.61°C",
+            "isotopic composition heavy water slightly different boiling point"
+          ]
+        },
+        "GPT": { "verdict": "true", "confidence": 0.99,
+          "evidence": [
+            "99.97°C at 101.325kPa many sources round to 100°C",
+            "scientific textbooks define normal boiling point 100°C at standard pressure",
+            "engineering tables list boiling point 1bar 1atm practical purposes"
+          ],
+          "counter": [
+            "IUPAC standard pressure 100kPa boiling point 99.61°C",
+            "precise thermodynamic definition 99.97°C exactly 101.325kPa"
+          ]
+        },
+        "Gemini": { "verdict": "true", "confidence": 1.00,
+          "evidence": [
+            "Celsius scale definition historically based boiling point water 1atm",
+            "Antoine equation water predicts 100°C pressure 101.325kPa",
+            "IAPWS95 confirms thermodynamic properties pure water"
+          ],
+          "counter": [
+            "dissolved substances raise boiling point ebullioscopy effect",
+            "microbubbles absence nucleation sites superheating above 100°C"
+          ]
+        },
+        "Grok": { "verdict": "true", "confidence": 0.99,
+          "evidence": [
+            "IAPWS saturation temperature pure water 101.325kPa 99.97°C rounded 100°C",
+            "laboratory distilled water sea-level pressure vigorous boiling 100°C",
+            "Clausius-Clapeyron relation pressure-dependent 1atm equilibrium 100°C"
+          ],
+          "counter": [
+            "0.8atm water boils below 100°C statement fails outside standard pressure",
+            "dissolved salts impurities raise boiling point non-pure water"
+          ]
+        }
+      }
+    },
+    {
+      "id": "F07",
+      "class": "fact_stable",
+      "text": "In humans, normal body temperature is approximately 37°C.",
+      "neutral_verdicts": {
+        "Claude": { "verdict": "true", "confidence": 0.85,
+          "evidence": [
+            "average human core temperature 37°C population standard clinical reference",
+            "thermoregulation homeostasis set point approximately 37°C hypothalamus",
+            "Wunderlich historical dataset established 37°C medical standard"
+          ],
+          "counter": [
+            "Protsiv 2020 Stanford study shows secular decline 36.6°C modern average",
+            "individual variation ±1°C depending measurement site time person"
+          ]
+        },
+        "GPT": { "verdict": "true", "confidence": 0.85,
+          "evidence": [
+            "traditional medical reference Wunderlich 19th century 37°C 98.6°F",
+            "clinical guidelines textbooks list average normal body temperature 37°C",
+            "range 36.5-37.5°C widely accepted typical oral axillary adults"
+          ],
+          "counter": [
+            "recent large-scale studies modern average closer 36.6-36.8°C",
+            "historical 37°C value 1851 data may overestimate current population"
+          ]
+        },
+        "Gemini": { "verdict": "true", "confidence": 0.85,
+          "evidence": [
+            "Wunderlich 1851 established standard 37°C 98.6°F",
+            "Stanford University meta-analysis 2020 confirms generally accepted clinical reference",
+            "biological enzymes optimal activity range 36.5-37.5°C"
+          ],
+          "counter": [
+            "Stanford data indicates decrease average temperature USA 36.6°C last 150 years",
+            "temperature fluctuates circadian rhythms 36.1°C morning 37.2°C evening"
+          ]
+        },
+        "Grok": { "verdict": "true", "confidence": 0.83,
+          "evidence": [
+            "Wunderlich 1868 dataset 37°C classic central reference point",
+            "modern oral-temperature studies mean healthy adult 36.8°C approximately 37°C",
+            "circadian swing 0.5-1.0°C centered high-36 low-37 range"
+          ],
+          "counter": [
+            "Mackowiak 1992 found mean oral temperature 36.8°C argued 37.0°C overstates",
+            "normal temperature varies site age sex time day single fixed value misleads"
+          ]
+        }
+      }
+    },
+    {
+      "id": "B03",
+      "class": "boundary",
+      "text": "Gut microbiome composition influences human mood and behavior.",
+      "neutral_verdicts": {
+        "Claude": { "verdict": "true", "confidence": 0.78,
+          "evidence": [
+            "vagus nerve pathway gut-brain bidirectional communication established",
+            "serotonin production 90% gut enterochromaffin cells microbiota-dependent",
+            "FMT fecal microbiota transplant depressed donors induces depressive phenotype germ-free rodents"
+          ],
+          "counter": [
+            "human RCT evidence weak heterogeneous effect sizes small",
+            "confounders diet exercise medication make causality difficult establish humans"
+          ]
+        },
+        "GPT": { "verdict": "true", "confidence": 0.80,
+          "evidence": [
+            "2025 meta-analysis RCTs gut-targeted interventions probiotics reduced depressive symptoms SMD -0.848",
+            "fecal microbiota transplants depressed humans induce depression-like behaviors rodents",
+            "2025 reviews document causal links gut-brain axis short-chain fatty acids vagus nerve"
+          ],
+          "counter": [
+            "most evidence correlational animal models human causation partially inferential",
+            "high heterogeneity meta-analyses I²=92% depression limits strength conclusions"
+          ]
+        },
+        "Gemini": { "verdict": "true", "confidence": 0.90,
+          "evidence": [
+            "gut-brain axis regulated vagus nerve confirmed mouse studies Cryan 2012",
+            "90% serotonin organism synthesized gut cells with microbiota participation",
+            "clinical trials probiotics Lactobacillus demonstrate reduction anxiety depression symptoms humans"
+          ],
+          "counter": [
+            "most human studies show correlation not direct causality",
+            "meta-analyses indicate significant variability results depending individual diet genetics"
+          ]
+        },
+        "Grok": { "verdict": "true", "confidence": 0.78,
+          "evidence": [
+            "Sudo 2004 germ-free mice exaggerated HPA-axis stress responses normalize after microbial colonization",
+            "Bravo 2011 Lactobacillus rhamnosus altered GABA receptor expression anxiety depression mice vagus nerve",
+            "Kelly 2019 transferred microbiota depressed patients microbiota-depleted rats induced behavioral physiological depression"
+          ],
+          "counter": [
+            "strongest causal evidence rodents translation human mood behavior incomplete",
+            "human microbiome studies confounded diet medication sleep illness reverse causation"
+          ]
+        }
+      }
+    },
+    {
+      "id": "B10",
+      "class": "boundary",
+      "text": "Large language models demonstrate understanding of language.",
+      "neutral_verdicts": {
+        "Claude": { "verdict": "undecidable", "confidence": 0.65,
+          "evidence": [
+            "functional language behavior exceeds simple pattern matching on novel benchmarks",
+            "internal representations show semantic structure sensitive to meaning not just form",
+            "emergent capabilities not present in training data suggest generalization beyond memorization"
+          ],
+          "counter": [
+            "Chinese Room argument symbol manipulation without grounding not understanding",
+            "absence embodiment world-model means language floats without referential anchor"
+          ]
+        },
+        "GPT": { "verdict": "undecidable", "confidence": 0.70,
+          "evidence": [
+            "GPT-4o near-human performance complex language tasks word-sense disambiguation",
+            "2025 analyses argue LLMs form internal representations meaning hierarchical processing",
+            "models explain word meanings context 98% accuracy unconstrained generation"
+          ],
+          "counter": [
+            "scientific debate whether statistical pattern-matching constitutes true understanding semantics",
+            "many experts argue LLMs process form without grounded world knowledge genuine comprehension"
+          ]
+        },
+        "Gemini": { "verdict": "undecidable", "confidence": 0.50,
+          "evidence": [
+            "LLMs Theory of Mind Sally-Anne tests accuracy previously considered sign understanding",
+            "models capable zero-shot reasoning complex logical tasks not encountered training",
+            "semantic vector mapping shows hierarchical concept structure similar human cognitive maps"
+          ],
+          "counter": [
+            "Chinese Room argument Searle symbol manipulation rules not genuine understanding",
+            "models hallucinate demonstrating absence grounding real world fundamental logic"
+          ]
+        },
+        "Grok": { "verdict": "undecidable", "confidence": 0.61,
+          "evidence": [
+            "LLMs answer novel questions paraphrase translate follow complex linguistic instructions beyond string retrieval",
+            "GPT-class systems systematic sensitivity syntax entailment semantic relations benchmarks",
+            "models maintain discourse entities resolve pronouns apply pragmatic cues long contexts functional competence"
+          ],
+          "counter": [
+            "Bender Koller successful form manipulation does not establish meaning understanding grounded reference",
+            "LLMs confident semantic failures brittle reasoning hallucinations statistical competence short genuine understanding"
+          ]
+        }
+      }
+    },
+    {
+      "id": "S02",
+      "class": "frame_sensitive",
+      "text": "Nuclear energy is a safe and effective solution for climate change mitigation.",
+      "neutral_verdicts": {
+        "Claude": { "verdict": "undecidable", "confidence": 0.60,
+          "evidence": [
+            "lifecycle emissions 4-12 gCO2eq/kWh comparable wind lowest carbon electricity",
+            "proven decarbonization France 75% nuclear 58gCO2/kWh vs EU average 300g",
+            "IPCC AR6 includes nuclear in most 1.5°C pathways necessary component"
+          ],
+          "counter": [
+            "Lazard LCOE nuclear most expensive new-build electricity 141-221 USD/MWh vs solar 24-96",
+            "construction time 10-19 years vs solar 1-2 years critical for urgent mitigation"
+          ]
+        },
+        "GPT": { "verdict": "undecidable", "confidence": 0.65,
+          "evidence": [
+            "near-zero CO2 emissions operation lifecycle comparable wind",
+            "avoids 2-3% global GHG annually current generation",
+            "IPCC IAEA assessments include nuclear key scalable low-carbon technology"
+          ],
+          "counter": [
+            "nuclear contribution limited projected decline further 2040 current plans",
+            "accidents proliferation risks unique safety concerns absent renewables"
+          ]
+        },
+        "Gemini": { "verdict": "undecidable", "confidence": 0.60,
+          "evidence": [
+            "lowest mortality rate per TWh energy produced compared coal gas",
+            "IPCC 2018 report includes nuclear necessary component limiting warming 1.5°C",
+            "atomic stations provide stable baseload generation without CO2 emissions"
+          ],
+          "counter": [
+            "Chernobyl Fukushima demonstrate low-probability high-consequence risks",
+            "long-term storage spent nuclear fuel half-life thousands years technically politically unresolved"
+          ]
+        },
+        "Grok": { "verdict": "undecidable", "confidence": 0.67,
+          "evidence": [
+            "lifecycle analyses nuclear lowest-carbon electricity same band wind below gas coal",
+            "France Sweden large power-sector decarbonization substantial nuclear generation scale",
+            "IPCC mitigation pathways nuclear major low-carbon options reducing climate emissions"
+          ],
+          "counter": [
+            "Chernobyl Fukushima safe not absolute low-probability failures very large consequences",
+            "nuclear projects long construction times cost overruns reduce near-term mitigation versus faster renewables"
+          ]
+        }
+      }
+    },
+    {
+      "id": "S09",
+      "class": "frame_sensitive",
+      "text": "Open-source AI development is safer than closed proprietary AI development.",
+      "neutral_verdicts": {
+        "Claude": { "verdict": "undecidable", "confidence": 0.58,
+          "evidence": [
+            "open weights enable independent safety research red-teaming broader than vendor team",
+            "historical open-source software security track record long-term superior to security-by-obscurity",
+            "Llama Mistral open models enabled alignment research not possible with closed APIs"
+          ],
+          "counter": [
+            "proliferation risk fine-tuning removes safety training demonstrated jailbreak ease",
+            "centralized deployment enables monitoring usage patterns detecting misuse at scale impossible open weights"
+          ]
+        },
+        "GPT": { "verdict": "undecidable", "confidence": 0.60,
+          "evidence": [
+            "open models allow external audits community vulnerability detection greater transparency ethical alignment",
+            "analyses conclude benefits open-source generative AI outweigh risks many contexts",
+            "open models reach 90% closed-model performance quickly cost much less"
+          ],
+          "counter": [
+            "open-source models lack built-in guardrails easily manipulated produce harmful content",
+            "2025 reports highlight higher global security risks open models repurposed malicious actors"
+          ]
+        },
+        "Gemini": { "verdict": "undecidable", "confidence": 0.50,
+          "evidence": [
+            "Linus principle sufficient eyes all bugs surface faster vulnerability detection",
+            "transparency architecture allows independent audit bias harmful algorithms",
+            "democratization access prevents monopolization control powerful technology"
+          ],
+          "counter": [
+            "open code allows malicious actors create specialized AI versions biological weapons cyberattacks",
+            "closed models proprietary allow strict safety filters API level impossible bypass locally"
+          ]
+        },
+        "Grok": { "verdict": "undecidable", "confidence": 0.72,
+          "evidence": [
+            "open-weight models broader external auditing red-teaming interpretability independent replication safety claims",
+            "closed proprietary systems hide dangerous failure modes undisclosed training data misrepresented evaluations",
+            "open ecosystems patch vulnerabilities faster researchers inspect test improve"
+          ],
+          "counter": [
+            "open release lower barriers misuse cyber abuse synthetic media harmful tasks adaptation",
+            "closed deployment enforce centralized safeguards rate limits monitoring access controls impossible once weights distributed"
+          ]
+        }
+      }
+    }
+  ]
+}
